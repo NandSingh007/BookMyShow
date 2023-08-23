@@ -1,9 +1,8 @@
 // Import necessary dependencies
 import express from 'express';
 import mongoose from 'mongoose';
-// import { User } from './models/User.mjs'; // Import User model if needed
-import config from './config/config.mjs'; // Import configuration
-import route from './routes/route_data.mjs'; // Import routes (make sure to use .mjs extension)
+import config from './config/config.mjs';
+import route from './routes/route_data.mjs';
 import cors from 'cors';
 
 // Create an instance of the Express application
@@ -23,12 +22,12 @@ mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('MongoDB connection error:', error);
+});
 
 // Start the server and listen on the specified port
 const port = config.port;
